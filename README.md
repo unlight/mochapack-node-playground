@@ -2,6 +2,12 @@
 
 Playing with mochapack
 
+## Install
+
+```sh
+pnpm i -D mochapack mocha webpack env-bool webpack-node-externals swc-loader
+```
+
 ```sh
 npm run test:r
 npm run test:w
