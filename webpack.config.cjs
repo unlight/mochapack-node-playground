@@ -6,11 +6,12 @@ const hasWatchFlag = process.argv.includes('--watch');
 /**
  * env
  * @param  {string} env value in --webpack-env
+ * @see https://github.com/sysgears/mochapack/blob/master/docs/installation/cli-usage.md
  */
 module.exports = env => {
   const disableTsCheck = envBool(process.env.WORKSPACE_NO_TS_CHECK);
   /**
-   * @type  { import('webpack').Configuration }
+   * @type { import('webpack').Configuration }
    */
   const config = {
     mode: 'development',
