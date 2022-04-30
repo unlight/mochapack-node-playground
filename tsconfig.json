@@ -1,0 +1,28 @@
+{
+  "ts-node": {
+    "transpileOnly": true,
+    "swc": true
+  },
+  "compilerOptions": {
+    "target": "ES2020",
+    "module": "ES6",
+    "moduleResolution": "node",
+    "importHelpers": true,
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "noImplicitAny": false,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "outDir": "dist",
+    "pretty": true,
+    "esModuleInterop": true,
+    "removeComments": false,
+    "sourceMap": false,
+    "declaration": false,
+    "declarationMap": false,
+    "skipLibCheck": true,
+    "lib": ["esnext"],
+    "paths": {}
+  },
+  "include": ["src"]
+}

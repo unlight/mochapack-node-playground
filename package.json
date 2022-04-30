@@ -1,0 +1,76 @@
+{
+  "bugs": {
+    "url": "https://github.com/unlight/mochapack-node-playground/issues"
+  },
+  "dependencies": {},
+  "description": "",
+  "devDependencies": {
+    "@swc/core": "^1.2.174",
+    "@swc/helpers": "^0.3.9",
+    "@types/mocha": "^9.1.1",
+    "@types/node": "^17.0.30",
+    "@typescript-eslint/eslint-plugin": "^5.21.0",
+    "@typescript-eslint/parser": "^5.21.0",
+    "env-bool": "^2.0.1",
+    "eslint": "^8.14.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-only-warn": "^1.0.3",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-unicorn": "^42.0.0",
+    "expect": "^28.0.2",
+    "mocha": "^9.2.2",
+    "mochapack": "^2.1.4",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^2.6.2",
+    "reflect-metadata": "^0.1.13",
+    "request": "^2.88.2",
+    "swc-loader": "^0.2.0",
+    "ts-node": "^10.7.0",
+    "tslib": "^2.4.0",
+    "typescript": "^4.6.4",
+    "watchexec-bin": "^1.0.0",
+    "webpack": "^5.72.0",
+    "webpack-node-externals": "^3.0.0"
+  },
+  "exports": {
+    ".": {
+      "import": "./esm/index.mjs",
+      "require": "./cjs/index.js"
+    }
+  },
+  "homepage": "https://github.com/unlight/mochapack-node-playground#readme",
+  "keywords": [
+    "mochapack",
+    "mocha",
+    "webpack"
+  ],
+  "license": "MIT",
+  "main": "./cjs/index.js",
+  "module": "./esm/index.mjs",
+  "name": "mochapack-node-playground",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/unlight/mochapack-node-playground.git"
+  },
+  "scripts": {
+    "build": "run-p build:a:* && run-p build:b:* && run-s build:c:*",
+    "build:a:1": "npx tsup src/index.ts -d=dist/esm --keep-names --platform=node --format=esm --target=es2020 --external=reflect-metadata --sourcemap",
+    "build:a:2": "npx tsup src/index.ts -d=dist/cjs --keep-names --platform=node --format=cjs --target=es2020 --external=reflect-metadata --sourcemap",
+    "build:b:3": "echo {\"type\": \"module\"} > dist/esm/package.json",
+    "build:b:4": "echo {\"type\": \"commonjs\"} > dist/cjs/package.json",
+    "build:c:1": "cp -fv README.md LICENSE dist",
+    "build:c:2": "cat package.json | jq \"del(.type)\" >dist/package.json",
+    "eslint": "node node_modules/eslint/bin/eslint \"src/**/*.{ts,tsx}\"",
+    "eslint:fix": "npm run eslint -- --fix",
+    "eslint:w": "watchexec -w src \"npm run eslint\"",
+    "prebuild": "rm -rf dist",
+    "test": "npm run eslint && npm run test:r",
+    "test:r": "mochapack \"src/*.spec.ts\" --webpack-config=webpack.config.cjs -b -q",
+    "test:w": "npm run test:r -- -w",
+    "tscheck": "tsc --noEmit",
+    "tscheck:w": "npm run tscheck -- --watch"
+  },
+  "type": "module",
+  "types": "./index.d.ts",
+  "version": "0.0.0-dev"
+}
