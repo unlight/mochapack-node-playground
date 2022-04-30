@@ -1,8 +1,42 @@
-## Resources
+# mochapack-node-playground
 
--   https://github.com/elsewhencode/project-guidelines/blob/master/README.sample.md
--   https://github.com/elsewhencode/project-guidelines
--   https://github.com/kettanaito/naming-cheatsheet
--   https://github.com/stars/unlight/lists/buildtools
--   https://github.com/stars/unlight/lists/projectinfrastructure
--   https://github.com/stars/unlight/lists/codequality
+Playing with mochapack
+
+```sh
+npm run test:r
+npm run test:w
+```
+
+## Issues
+
+#### https://github.com/sysgears/mochapack/issues/131
+
+(node:7768) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 unhandledRejection listeners added to [process]. Use emitter.setMaxListeners() to increase limit
+
+```sh
+# open terminal 1
+git clone https://github.com/unlight/mochapack-node-playground
+cd mochapack-node-playground
+pnpm i
+npm run test:w
+# switch to terminal 2
+sleep 0.2
+touch src/index.ts
+sleep 0.2
+touch src/index.ts
+sleep 0.2
+touch src/index.ts
+sleep 0.2
+touch src/index.ts
+sleep 0.2
+touch src/index.ts
+sleep 0.2
+touch src/index.ts
+sleep 0.2
+touch src/index.ts
+sleep 0.2
+touch src/index.ts
+sleep 0.2
+touch src/index.ts
+echo "check terminal 1"
+```
