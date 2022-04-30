@@ -1,15 +1,8 @@
-const { envBool } = require('env-bool');
 const nodeExternals = require('webpack-node-externals');
 
-const hasWatchFlag = process.argv.includes('--watch');
+module.exports = (env, argv) => {
+  const isWatchMode = Boolean(argv.watch);
 
-/**
- * env
- * @param  {string} env value in --webpack-env
- * @see https://github.com/sysgears/mochapack/blob/master/docs/installation/cli-usage.md
- */
-module.exports = env => {
-  const disableTsCheck = envBool(process.env.WORKSPACE_NO_TS_CHECK);
   /**
    * @type { import('webpack').Configuration }
    */
@@ -17,7 +10,7 @@ module.exports = env => {
     mode: 'development',
     target: 'node', // webpack should compile node compatible code
     externals: [nodeExternals()], // in order to ignore all modules in node_modules folder
-    devtool: 'inline-cheap-module-source-map',
+    devtool: 'eval', // https://webpack.js.org/configuration/devtool/
     resolve: {
       extensions: ['.ts', '.tsx', '.js', '.json'],
     },
@@ -34,7 +27,6 @@ module.exports = env => {
     },
     module: {
       rules: [
-        { parser: { amd: false } },
         {
           test: /\.ts$/,
           use: {
