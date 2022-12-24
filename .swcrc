@@ -1,7 +1,7 @@
 {
   "sourceMaps": false,
   "module": {
-    "type": "es6"
+    "type": "commonjs"
   },
   "jsc": {
     "externalHelpers": true,
