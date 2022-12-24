@@ -1,8 +1,7 @@
 {
+  "name": "mochapack-node-playground",
   "description": "Playing with mochapack",
-  "type": "module",
   "private": true,
-  "types": "./index.d.ts",
   "version": "0.0.0-dev",
   "keywords": [
     "mochapack",
@@ -10,28 +9,21 @@
     "webpack"
   ],
   "license": "MIT",
-  "main": "./cjs/index.js",
-  "module": "./esm/index.mjs",
-  "name": "mochapack-node-playground",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
   "exports": {
     ".": {
-      "import": "./esm/index.mjs",
-      "require": "./cjs/index.js"
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
     }
   },
-  "overrides": {
-    "instant-mocha": {
-      "mocha": ">=8"
-    }
-  },
+  "files": [
+    "dist"
+  ],
   "scripts": {
-    "build": "run-p build:a:* && run-p build:b:* && run-s build:c:*",
-    "build:a:1": "npx tsup src/index.ts -d=dist/esm --keep-names --platform=node --format=esm --target=es2020 --external=reflect-metadata --sourcemap",
-    "build:a:2": "npx tsup src/index.ts -d=dist/cjs --keep-names --platform=node --format=cjs --target=es2020 --external=reflect-metadata --sourcemap",
-    "build:b:3": "echo {\"type\": \"module\"} > dist/esm/package.json",
-    "build:b:4": "echo {\"type\": \"commonjs\"} > dist/cjs/package.json",
-    "build:c:1": "cp -fv README.md LICENSE dist",
-    "build:c:2": "cat package.json | jq \"del(.type)\" >dist/package.json",
+    "build": "npx pkgroll --target=es2020",
     "eslint": "node node_modules/eslint/bin/eslint \"src/**/*.{ts,tsx}\"",
     "eslint:fix": "npm run eslint -- --fix",
     "eslint:w": "watchexec -w src \"npm run eslint\"",
@@ -68,6 +60,9 @@
     "watchexec-bin": "^1.0.0",
     "webpack": "^5.75.0",
     "webpack-node-externals": "^3.0.0"
+  },
+  "peerDependencies": {
+    "reflect-metadata": "^0.1.13"
   },
   "homepage": "https://github.com/unlight/mochapack-node-playground#readme",
   "bugs": {
