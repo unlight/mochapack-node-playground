@@ -13,7 +13,7 @@ module.exports = (env, argv) => {
     //   modulesFromFile: true,
     // }),
     externals: [nodeExternals()], // in order to ignore all modules in node_modules folder
-    devtool: 'eval', // https://webpack.js.org/configuration/devtool/
+    devtool: 'eval-source-map', // https://webpack.js.org/configuration/devtool/
     resolve: {
       extensions: ['.ts', '.tsx', '.js', '.json'],
     },

@@ -1,6 +1,7 @@
 {
-  "sourceMaps": false,
+  "sourceMaps": true,
   "module": {
+    "noInterop": true // removes __esModule
     "type": "commonjs"
   },
   "jsc": {
