@@ -8,6 +8,9 @@
     "mocha",
     "webpack"
   ],
+  "workspaces": [
+    "workspace_lib"
+  ],
   "license": "MIT",
   "type": "module",
   "main": "./dist/index.cjs",
@@ -28,7 +31,7 @@
     "eslint:fix": "npm run eslint -- --fix",
     "eslint:w": "watchexec -w src \"npm run eslint\"",
     "prebuild": "rm -rf dist",
-    "test": "npm run eslint && npm run test:r",
+    "test": "npm run eslint && npm run test:r -- -R spec",
     "test:r": "instant-mocha \"src/*.spec.ts\" --webpack-config=webpack.config.cjs -b -R min",
     "test:w": "npm run test:r -- -w",
     "tscheck": "tsc --noEmit",
@@ -59,7 +62,9 @@
     "typescript": "^5.0.2",
     "watchexec-bin": "^1.0.0",
     "webpack": "^5.76.2",
-    "webpack-node-externals": "^3.0.0"
+    "webpack-cli": "^5.0.1",
+    "webpack-node-externals": "^3.0.0",
+    "workspace-alias": "^0.1.0"
   },
   "peerDependencies": {
     "reflect-metadata": "^0.1.13"

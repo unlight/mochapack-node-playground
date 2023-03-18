@@ -27,3 +27,6 @@ npm run test:w
 
 - swc `module.noInterop: true` should remove `__esModule` and make assertion showing
   correct line number
+
+- restart in monorepo?
+  Yes. With help of `workspace-alias` it possible to change source code of workspace lib (it will be included in bundle).
