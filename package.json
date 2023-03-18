@@ -32,7 +32,7 @@
     "eslint:w": "watchexec -w src \"npm run eslint\"",
     "prebuild": "rm -rf dist",
     "test": "npm run eslint && npm run test:r -- -R spec",
-    "test:r": "instant-mocha \"src/*.spec.ts\" --webpack-config=webpack.config.cjs -b -R min",
+    "test:r": "instant-mocha \"src/*.spec.ts\" --webpack-config=webpack.config.cjs -b -R dot",
     "test:w": "npm run test:r -- -w",
     "tscheck": "tsc --noEmit",
     "tscheck:w": "npm run tscheck -- --watch"
