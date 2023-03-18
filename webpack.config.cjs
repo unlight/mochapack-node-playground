@@ -10,9 +10,6 @@ module.exports = (env, argv) => {
   const config = {
     mode: 'development',
     target: 'node', // webpack should compile node compatible code
-    // nodeExternals({
-    //   modulesFromFile: true,
-    // }),
     externals: [nodeExternals({ allowlist: /@mochapack-node-playground/ })], // in order to ignore all modules in node_modules folder
     devtool: 'eval-source-map', // https://webpack.js.org/configuration/devtool/
     resolve: {
