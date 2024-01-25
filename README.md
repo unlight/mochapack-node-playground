@@ -15,16 +15,6 @@ npm run test:w
 
 ## Issues
 
-- https://github.com/privatenumber/instant-mocha/issues/34 Support mocha 9
-
-  ```
-    "overrides": {
-      "instant-mocha": {
-        "mocha": ">8"
-      }
-    },
-  ```
-
 - swc `module.noInterop: true` should remove `__esModule` and make assertion showing
   correct line number
 
