@@ -5,7 +5,7 @@ module.exports = (env, argv) => {
   const isWatchMode = Boolean(argv.watch);
 
   /**
-   * @type { import('webpack').Configuration }
+   * @type {import('webpack').Configuration}
    */
   const config = {
     mode: 'development',

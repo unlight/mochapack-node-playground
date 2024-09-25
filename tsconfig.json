@@ -22,7 +22,9 @@
     "declarationMap": false,
     "skipLibCheck": true,
     "lib": ["esnext"],
-    "paths": {}
+    "paths": {
+      "@mochapack-node-playground/foo": ["./workspace_lib/src"]
+    }
   },
   "include": ["src"]
 }
