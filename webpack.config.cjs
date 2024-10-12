@@ -11,7 +11,7 @@ module.exports = (env, argv) => {
     mode: 'development',
     target: 'node', // webpack should compile node compatible code
     externals: [nodeExternals({ allowlist: /@mochapack-node-playground/ })], // in order to ignore all modules in node_modules folder
-    devtool: 'eval-source-map', // https://webpack.js.org/configuration/devtool/
+    devtool: 'source-map', // https://webpack.js.org/configuration/devtool/
     resolve: {
       extensions: ['.ts', '.tsx', '.js', '.json'],
       alias: workspaceAliases(),
